@@ -8,6 +8,7 @@
 	<title>Услуги по 3D моделированию</title>
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/style.min.css">
+	<link rel="stylesheet" href="./css/lesson19.css">
 	<link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
@@ -41,10 +42,10 @@
 
 				</div>
 				<div class="col-md-1 col-sm-2 col-3">
-					<div class="menu">
+					<button class="menu" type="button" aria-label="Открыть меню" aria-controls="site-menu" aria-expanded="false">
 						<img src="images/menu.svg" alt=""><br>
 						<small>Меню</small>
-					</div>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -92,8 +93,8 @@
 </main>
 
 
-<menu>
-	<a class="close-btn" href="#close">&times;</a>
+<menu id="site-menu" inert>
+	<button class="close-btn" type="button" aria-label="Закрыть меню">&times;</button>
 	<ul>
 		<li><a href="#service-block">Наши услуги</a></li>
 		<li><a href="#portfolio">Портфолио</a></li>
@@ -393,11 +394,11 @@
 	</div>
 </footer>
 
-<div class="popup">
+<div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title" aria-hidden="true">
 	<div class="popup-content">
-		<button class="popup-close">&times;</button>
+		<button class="popup-close" type="button" aria-label="Закрыть окно">&times;</button>
 		<div class="main-form">
-			<h3>Введите свои данные для связи с нами!</h3>
+			<h3 id="popup-title">Введите свои данные для связи с нами!</h3>
 			<form id="form3" name="user_form">
 				<div>
 					<input type="text" class="form-name" id="form3-name" name="user_name" placeholder="Ваше имя"
