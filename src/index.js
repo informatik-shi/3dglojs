@@ -1,5 +1,6 @@
 import './menu.js';
 import './modal.js';
+import './smooth-scroll.js';
 
 const deadline = new Date('2026-12-31T23:59:59+03:00');
 const hoursElement = document.getElementById('timer-hours');

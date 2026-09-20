@@ -6,7 +6,7 @@ function closeMenu() {
   menu.classList.remove('active-menu');
   menu.inert = true;
   menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.focus();
+  menuButton.focus({ preventScroll: true });
 }
 
 menuButton.addEventListener('click', () => {
