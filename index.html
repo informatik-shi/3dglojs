@@ -109,13 +109,13 @@
 	<div class="container">
 		<h2>Наши услуги</h2>
 		<div class="underline"></div>
-		<div class="row service-header">
-			<div class="col-12 col-lg-4 service-header-tab active">Дизайн <span>интерьера</span></div>
-			<div class="col-12 col-lg-4 service-header-tab">Дизайн <span>экстерьера</span></div>
-			<div class="col-12 col-lg-4 service-header-tab">Визуальная <span>анимация</span></div>
+		<div class="row service-header" role="tablist" aria-label="Виды услуг">
+			<button class="col-12 col-lg-4 service-header-tab active" type="button" role="tab" id="service-tab-1" aria-controls="service-panel-1" aria-selected="true">Дизайн <span>интерьера</span></button>
+			<button class="col-12 col-lg-4 service-header-tab" type="button" role="tab" id="service-tab-2" aria-controls="service-panel-2" aria-selected="false" tabindex="-1">Дизайн <span>экстерьера</span></button>
+			<button class="col-12 col-lg-4 service-header-tab" type="button" role="tab" id="service-tab-3" aria-controls="service-panel-3" aria-selected="false" tabindex="-1">Визуальная <span>анимация</span></button>
 		</div>
 
-		<div class="service-tab row">
+		<div class="service-tab row" id="service-panel-1" role="tabpanel" aria-labelledby="service-tab-1">
 			<div class="service-outer col-md-6 col-sm-6 col-12">
 				<div class="service-inner">
 					<div class="service-text">
@@ -131,7 +131,7 @@
 		</div>
 
 
-		<div class="service-tab row">
+		<div class="service-tab row" id="service-panel-2" role="tabpanel" aria-labelledby="service-tab-2" hidden>
 			<div class="col-md-6 col-sm-6">
 				<img src="images/service/service-2.png" alt="">
 			</div>
@@ -147,7 +147,7 @@
 		</div>
 
 
-		<div class="service-tab row">
+		<div class="service-tab row" id="service-panel-3" role="tabpanel" aria-labelledby="service-tab-3" hidden>
 			<div class="service-outer col-md-6 col-sm-6 col-12">
 				<div class="service-inner">
 					<p>Услуга, направленная на разработку дизайна с анимацией, дизайн интерьера и экстерьера</p>

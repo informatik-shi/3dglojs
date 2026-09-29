@@ -47,3 +47,13 @@ body input:focus-visible {
   outline: 2px solid #19b5fe;
   outline-offset: 3px;
 }
+
+.service-header-tab {
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+}
+
+.service-tab[hidden] {
+  display: none !important;
+}

@@ -2,42 +2,45 @@ const menuButton = document.querySelector('.menu');
 const menu = document.querySelector('menu');
 const closeButton = menu.querySelector('.close-btn');
 
-function closeMenu() {
-  menu.classList.remove('active-menu');
-  menu.inert = true;
-  menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.focus();
-}
-
-menuButton.addEventListener('click', () => {
-  if (menu.classList.contains('active-menu')) {
-    closeMenu();
-    return;
-  }
-
+function openMenu() {
   menu.inert = false;
   menu.classList.add('active-menu');
   menuButton.setAttribute('aria-expanded', 'true');
   closeButton.focus();
-});
+}
 
-menu.addEventListener('click', (event) => {
-  if (event.target.closest('a')) {
+function closeMenu(returnFocus = false) {
+  menu.classList.remove('active-menu');
+  menu.inert = true;
+  menuButton.setAttribute('aria-expanded', 'false');
+  if (returnFocus) menuButton.focus({ preventScroll: true });
+}
+
+// Один обработчик управляет бургером, крестиком, ссылками и кликом снаружи.
+function toggleMenu(event) {
+  const target = event.target;
+
+  if (event.type === 'keydown') {
+    if (event.key === 'Escape' && menu.classList.contains('active-menu')) {
+      closeMenu(true);
+    }
+    return;
+  }
+
+  if (menuButton.contains(target)) {
+    if (menu.classList.contains('active-menu')) closeMenu(true);
+    else openMenu();
+    return;
+  }
+
+  if (!menu.classList.contains('active-menu')) return;
+
+  if (target.closest('.close-btn')) {
+    closeMenu(true);
+  } else if (target.closest('menu a[href]') || !menu.contains(target)) {
     closeMenu();
   }
-});
+}
 
-closeButton.addEventListener('click', closeMenu);
-
-document.addEventListener('click', (event) => {
-  if (menu.classList.contains('active-menu') &&
-      !menu.contains(event.target) && !menuButton.contains(event.target)) {
-    closeMenu();
-  }
-});
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && menu.classList.contains('active-menu')) {
-    closeMenu();
-  }
-});
+document.addEventListener('click', toggleMenu);
+document.addEventListener('keydown', toggleMenu);
