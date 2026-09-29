@@ -5,7 +5,8 @@
   "description": "Стартовая webpack сборка",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch --mode development"
+    "watch": "webpack --watch --mode development",
+    "test": "node --test tests/*.test.cjs"
   },
   "devDependencies": {
     "webpack": "^5.111.1",
