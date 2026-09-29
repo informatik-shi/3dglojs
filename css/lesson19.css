@@ -57,3 +57,29 @@ body input:focus-visible {
 .service-tab[hidden] {
   display: none !important;
 }
+
+.portfolio-btn {
+  border: 0;
+}
+
+.portfolio-dots .dot {
+  padding: 0;
+  background: transparent;
+}
+
+.portfolio-dots .dot-active {
+  background-color: #19b5fe;
+}
+
+@media (max-width: 767px) {
+  .portfolio-dots {
+    display: flex;
+    bottom: 5px;
+  }
+
+  .portfolio-dots .dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+  }
+}

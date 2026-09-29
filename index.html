@@ -168,25 +168,17 @@
 	<div class="container">
 		<h2>Портфолио</h2>
 		<div class="underline"></div>
-		<ul class="portfolio-content" id="all-progects">
-			<li class="portfolio-item portfolio-item-active"><img src="images/portfilio/portfolio-01.jpg"
-																														alt="portfolio"></li>
-			<li class="portfolio-item"><img src="images/portfilio/portfolio-04.jpg" alt="portfolio"></li>
-			<li class="portfolio-item"><img src="images/portfilio/portfolio-06.jpg" alt="portfolio"></li>
-			<li class="portfolio-item"><img src="images/portfilio/portfolio-07.jpg" alt="portfolio"></li>
-			<li class="portfolio-item"><img src="images/portfilio/portfolio-08.jpg" alt="portfolio"></li>
-			<li class="portfolio-item"><img src="images/portfilio/portfolio-10.jpg" alt="portfolio"></li>
-			<a href="#" class="portfolio-btn prev" id="arrow-left"></a>
-			<a href="#" class="portfolio-btn next" id="arrow-right"></a>
-			<ul class="portfolio-dots">
-				<li class="dot dot-active"></li>
-				<li class="dot"></li>
-				<li class="dot"></li>
-				<li class="dot"></li>
-				<li class="dot"></li>
-				<li class="dot"></li>
-			</ul>
-		</ul>
+		<div class="portfolio-content" id="all-progects" role="region" aria-roledescription="карусель" aria-label="Работы студии">
+			<div class="portfolio-item portfolio-item-active"><img src="images/portfilio/portfolio-01.jpg" alt="Пример работы 1"></div>
+			<div class="portfolio-item"><img src="images/portfilio/portfolio-04.jpg" alt="Пример работы 2"></div>
+			<div class="portfolio-item"><img src="images/portfilio/portfolio-06.jpg" alt="Пример работы 3"></div>
+			<div class="portfolio-item"><img src="images/portfilio/portfolio-07.jpg" alt="Пример работы 4"></div>
+			<div class="portfolio-item"><img src="images/portfilio/portfolio-08.jpg" alt="Пример работы 5"></div>
+			<div class="portfolio-item"><img src="images/portfilio/portfolio-10.jpg" alt="Пример работы 6"></div>
+			<button class="portfolio-btn prev" id="arrow-left" type="button" aria-label="Предыдущий слайд"></button>
+			<button class="portfolio-btn next" id="arrow-right" type="button" aria-label="Следующий слайд"></button>
+			<div class="portfolio-dots" role="group" aria-label="Выбор слайда"></div>
+		</div>
 	</div>
 </div>
 
