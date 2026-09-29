@@ -1,14 +1,16 @@
+import { animate } from './helpers.js';
+
 const popup = document.querySelector('.popup');
 const popupContent = popup.querySelector('.popup-content');
 const closeButton = popup.querySelector('.popup-close');
 const openButtons = document.querySelectorAll('.popup-btn');
-let animationId = null;
+let cancelAnimation = null;
 let opener = null;
 let savedOverflow = '';
 
 function finishAnimation() {
-  cancelAnimationFrame(animationId);
-  animationId = null;
+  if (cancelAnimation) cancelAnimation();
+  cancelAnimation = null;
   popupContent.style.opacity = '1';
   popupContent.style.transform = 'translateY(0)';
 }
@@ -29,22 +31,18 @@ function openPopup(event) {
 
   popupContent.style.opacity = '0';
   popupContent.style.transform = 'translateY(-60px)';
-  let startTime = null;
-
-  function animate(time) {
-    if (startTime === null) startTime = time;
-    const progress = Math.min((time - startTime) / 400, 1);
-    popupContent.style.opacity = String(progress);
-    popupContent.style.transform = `translateY(${-60 * (1 - progress)}px)`;
-
-    if (progress < 1) {
-      animationId = requestAnimationFrame(animate);
-    } else {
-      finishAnimation();
-    }
-  }
-
-  animationId = requestAnimationFrame(animate);
+  cancelAnimation = animate({
+    duration: 400,
+    draw(progress) {
+      popupContent.style.opacity = String(progress);
+      popupContent.style.transform = `translateY(${-60 * (1 - progress)}px)`;
+    },
+    onComplete() {
+      cancelAnimation = null;
+      popupContent.style.opacity = '1';
+      popupContent.style.transform = 'translateY(0)';
+    },
+  });
 }
 
 function closePopup() {
@@ -81,5 +79,5 @@ document.addEventListener('keydown', (event) => {
 });
 
 window.addEventListener('resize', () => {
-  if (window.innerWidth < 768 && animationId !== null) finishAnimation();
+  if (window.innerWidth < 768 && cancelAnimation) finishAnimation();
 });
