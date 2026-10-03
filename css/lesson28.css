@@ -1,0 +1,20 @@
+.form-status {
+  min-height: 1.5em;
+  margin: 12px 0 0;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+}
+
+.form-status-error {
+  color: #ffd2d2;
+}
+
+.form-status-success {
+  color: #c6f7df;
+}
+
+.form-btn:disabled {
+  cursor: wait;
+  opacity: .7;
+}

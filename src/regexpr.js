@@ -27,12 +27,14 @@ calculatorInputs.forEach((input) => allowOnly(input, /[^0-9]/g));
 
 forms.forEach((form) => {
   form.querySelectorAll('input').forEach((input) => {
-    if (input.type === 'text' || input.placeholder === 'Ваше сообщение') {
-      allowOnly(input, /[^А-Яа-яЁё -]/g);
+    if (input.name === 'user_name') {
+      allowOnly(input, /[^А-Яа-яЁё ]/g);
+    } else if (input.name === 'user_message') {
+      allowOnly(input, /[^\p{Script=Cyrillic}\p{P}0-9 ]/gu);
+    } else if (input.name === 'user_phone') {
+      allowOnly(input, /[^0-9+()-]/g);
     } else if (input.type === 'email') {
       allowOnly(input, /[^A-Za-z0-9@._!~*'-]/g);
-    } else if (input.type === 'tel') {
-      allowOnly(input, /[^0-9()-]/g);
     }
   });
 });

@@ -1,6 +1,7 @@
 import './menu.js';
 import './modal.js';
 import './regexpr.js';
+import './form-send.js';
 import './tabs.js';
 import './slider.js';
 import './calculator.js';
